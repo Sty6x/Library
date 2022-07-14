@@ -72,6 +72,7 @@ table {
 	font-family: 'Roboto Mono', monospace;
 	letter-spacing: var(--letter-Space);
 	color: #EDEDED;
+	
 }
 nav.nav-bar{
 	display: flex;
@@ -84,17 +85,20 @@ nav.nav-bar{
 
 main{
 	background-color: #EDEDED;
-	padding: 3em 15em 5em 15em;	
-	height: 77.4vh;
+	padding: 2em 15em 1em 15em;	
+	height: 86vh;
 }
 
+.inner-main-container{
+	/* outline: red solid 1px; */
+}
 
 .book-func{
 	/* outline: black 1px solid; */
 	display: flex;
 	/* justify-content: space-between; */
 	align-items: center;
-	padding: 0 5em;
+	padding: 0 8em;
 }
 
 .book-func>p{
@@ -102,32 +106,52 @@ main{
 	font-size: 2.2rem;
 	font-family: 'Roboto Mono', monospace;
 	letter-spacing: var(--letter-Space);
-	flex: 1;
+	/* flex: 1; */
+	margin-right: auto;
 }
 
 .func-icon{
 	width: 30px;
 	height: 30px;
 	padding-left: 1em;
-	margin-right: auto;
+	/* margin-right: auto; */
 }
 .book-grid{
-	outline: black 1px solid;
-	padding: 2em 5em;
+	/* outline: black 1px solid; */
+	padding: 1.5em 8em 0em 8em;
 	display: grid;
 	/* grid-auto-rows: ; */
 	grid-template-rows: repeat(2, minmax(20em , 1fr));
 	grid-template-columns: repeat(4, minmax(150px,1fr));
-	row-gap: 48px;
+	row-gap: 30px;
 	column-gap: 13px ;
 
 }
 .placeholder{
-	outline: black 1px solid;
+	/* outline: black 1px solid; */
 	background-color: #A96767;
 	padding: 10px;
+	border-radius: 6px;
+	box-shadow: 5px 5px 10px rgb(0, 0, 0 ,.3);
+	border-left: 10px solid rgb(71, 27, 27);
 }
-.placeholder>h1{
+.content-box>h1{
 	color: #F0FFC5;
 	font-family: 'Roboto Mono', monospace;
+}
+
+.content-box{
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+}
+
+
+.description-box{
+	background-color: #CCB2B2;
+	padding: 10px;
+	font-family: 'Roboto Mono', monospace;
+	font-size: .95rem;
+	height: auto;
+	width: auto;
 }
