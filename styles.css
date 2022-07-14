@@ -50,35 +50,84 @@ table {
 
 
 
+:root{
+	--letter-Space :3px;
+}
 
 
-
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;600;700&display=swap');
 .nav-icon{
 	width: 50px;
 	height: 50px;
 	padding-left: 2em;
 }
 
+.right-nav{
+	padding-right: 2.4em;
+}
+
 .logo{
 	font-size: 2.3rem;
 	font-weight: 600;
 	font-family: 'Roboto Mono', monospace;
-	letter-spacing: 5px;
+	letter-spacing: var(--letter-Space);
 	color: #EDEDED;
 }
 nav.nav-bar{
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: .5em 4em ;
+	padding: 1em 5em ;
 	background-color: #9A8383;
 }
 
 
 main{
 	background-color: #EDEDED;
-	padding: 5em 10em;	
+	padding: 3em 15em 5em 15em;	
+	height: 77.4vh;
 }
 
 
+.book-func{
+	/* outline: black 1px solid; */
+	display: flex;
+	/* justify-content: space-between; */
+	align-items: center;
+	padding: 0 5em;
+}
+
+.book-func>p{
+	font-weight: 700;
+	font-size: 2.2rem;
+	font-family: 'Roboto Mono', monospace;
+	letter-spacing: var(--letter-Space);
+	flex: 1;
+}
+
+.func-icon{
+	width: 30px;
+	height: 30px;
+	padding-left: 1em;
+	margin-right: auto;
+}
+.book-grid{
+	outline: black 1px solid;
+	padding: 2em 5em;
+	display: grid;
+	/* grid-auto-rows: ; */
+	grid-template-rows: repeat(2, minmax(20em , 1fr));
+	grid-template-columns: repeat(4, minmax(150px,1fr));
+	row-gap: 48px;
+	column-gap: 13px ;
+
+}
+.placeholder{
+	outline: black 1px solid;
+	background-color: #A96767;
+	padding: 10px;
+}
+.placeholder>h1{
+	color: #F0FFC5;
+	font-family: 'Roboto Mono', monospace;
+}
