@@ -19,22 +19,21 @@ function showBook(library) {
     }
 }
 
-console.log(library)
 //functionality
 
-const title = document.getElementById('title')
-title.addEventListener('input', () => {
-    console.log(title.value)
-})
-const author = document.getElementById('author')
-title.addEventListener('input', () => {
-    console.log(author.value)
-})
+// const title = document.getElementById('title')
+// title.addEventListener('input', () => {
+//     console.log(title.value)
+// })
+// const author = document.getElementById('author')
+// title.addEventListener('input', () => {
+//     console.log(author.value)
+// })
 
-const pages = document.getElementById('pages')
-title.addEventListener('input', () => {
-    console.log(pages.value)
-})
+// const pages = document.getElementById('pages')
+// title.addEventListener('input', () => {
+//     console.log(pages.value)
+// })
 
 
 
@@ -43,11 +42,19 @@ title.addEventListener('input', () => {
 
 const addButton =  document.getElementById('add');
 addButton.addEventListener('click', () => {
-    console.log('add button is pressed')
+    console.log('book is added!')
     addBookToLibrary(title.value,author.value,pages.value)
+    
+    // resets value after every add press to prevent
+    // duplication everytime button is pressed
+    title.value = '';
+    author.value = '';
+    pages.value = '';
 })
 
 const displayBook = document.getElementById('display-books')
 displayBook.addEventListener('click' , ()=>{
+    console.log('book is being displayed!')
     showBook(library)
+    console.log(library)
 })
