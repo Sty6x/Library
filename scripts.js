@@ -7,31 +7,47 @@ function Book(title, author, pages) {
 }
 
 function addBookToLibrary(title, author, pages) {
- 
     let book = new Book(title, author, pages)
     library.push(book)
     return book;
 }
 
 
-addBookToLibrary("Killing commendatore", 'Haruki murakami', "600")
-addBookToLibrary("Norwegian Wood", 'Haruki murakami', "500")
-addBookToLibrary("Crime and punishment", 'Fyodor dostoyevsky', "567")
-addBookToLibrary("Life of a stupid man", 'Ryunuske aktugawa', "64")
-addBookToLibrary("No longer human", 'Osamu Dazai', "352")
-
-
-function displayBook(library) {
+function showBook(library) {
     for (let book in library) {
         console.log(library[book])
     }
 }
 
-displayBook(library)
 console.log(library)
+//functionality
 
 const title = document.getElementById('title')
-
 title.addEventListener('input', () => {
     console.log(title.value)
+})
+const author = document.getElementById('author')
+title.addEventListener('input', () => {
+    console.log(author.value)
+})
+
+const pages = document.getElementById('pages')
+title.addEventListener('input', () => {
+    console.log(pages.value)
+})
+
+
+
+
+// buttons
+
+const addButton =  document.getElementById('add');
+addButton.addEventListener('click', () => {
+    console.log('add button is pressed')
+    addBookToLibrary(title.value,author.value,pages.value)
+})
+
+const displayBook = document.getElementById('display-books')
+displayBook.addEventListener('click' , ()=>{
+    showBook(library)
 })
