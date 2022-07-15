@@ -211,7 +211,6 @@ main{
 	flex-direction: column;
 	width: 300px;
 	height: auto;
-
 }
 .buttons-container{
 	display: flex;
