@@ -11,6 +11,7 @@
 </head>
 
 <body>
+
   <div class="container">
     <header>
       <nav class="nav-bar">
@@ -28,8 +29,8 @@
         <div class="book-func">
           <p>Book</p>
           <div class="func">
-            <img class="func-icon" src="./resources/img/2022-04-08_06-55.png" alt="add book">
-            <img class="func-icon" src="./resources/img/icons8-minus-50.png" alt="delete book">
+            <img class="func-icon add-book-icon" src="./resources/img/2022-04-08_06-55.png" alt="add book">
+            <img class="func-icon delete-book-icon" src="./resources/img/icons8-minus-50.png" alt="delete book">
           </div>
         </div>
         <div class="book-grid">
@@ -53,38 +54,41 @@
           </div>
         </div>
       </div>
-      <div class="pop-up-card">
-        <form action=""  class="pop-up-form">
-        <ul>
-          <li class="title-form form">
-            <label for="title"> Title</label>
-            <input type="text" name="" id="title" >
-          </li>
-          <li class="title-form form">
-             <label for="author"> Author</label>
-            <input type="text" name="" id="author">
-          </li>
-          <li class="title-form form">
-            <label for="pages">Pages</label>
-            <input type="number" name="" id="pages">
-          </li>
-          <li class="title-form form">
-            <label for="description">Description</label>
-            <textarea name="" id="description" cols="30" rows="10"></textarea>
-          </li>
-        </ul>
- 
-      </form>
-      <div class="buttons-container">
-        <button id="add">add book</button>
-        <button id="display-books">Display books</button>
-        <button>delete book</button>
-      </div>
-      </div>
-   
+
       
     </main>
+
+    <div class=" pop-up-card pop-up">
+      <form action=""  class="pop-up-form">
+      <ul>
+        <li class="title-form form-input-label">
+          <label for="ti"> Title</label>
+          <input type="text" name="" id="title" >
+        </li>
+        <li class="auth-form form-input-label">
+           <label for="author"> Author</label>
+          <input type="text" name="" id="author">
+        </li>
+        <li class="pages-form form-input-label">
+          <label for="pg">Pages</label>
+          <input type="number" name="" id="pages">
+        </li>
+        <li class="description-form form-input-label">
+          <label for="desc">Description</label>
+          <textarea name="" id="description" cols="30" rows="10"></textarea>
+        </li>
+      </ul>
+  
+    </form>
+    <div class="buttons-container">
+      <button id="add">add book</button>
+      <button id="display-books">Display books</button>
+      <button>delete book</button>
+    </div>
+    </div>
+  
   </div>
+
 </body>
 
 </html>
