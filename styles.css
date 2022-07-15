@@ -52,14 +52,30 @@ table {
 
 :root{
 	--letter-Space :3px;
+
 }
 
+.dim{
+	background-color: rgb(0, 0, 0, 0.7);
+	height: 100vh;
+	width: 1920px;
+	/* transform: translate(50%,50%); */
+	position: absolute;
+	z-index: 999;
+}
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;600;700&display=swap');
 .nav-icon{
 	width: 50px;
 	height: 50px;
 	padding-left: 2em;
+}
+.container{
+	background-color: black;
+	/* outline: black solid 200px; */
+	/* z-index: 0; */
+	/* opacity: ; */
+
 }
 
 .right-nav{
@@ -89,9 +105,6 @@ main{
 	height: 86vh;
 }
 
-.inner-main-container{
-	/* outline: red solid 1px; */
-}
 
 .book-func{
 	/* outline: black 1px solid; */
@@ -198,7 +211,7 @@ main{
 	flex-direction: column;
 	width: 300px;
 	height: auto;
-	/* justify-content: space-between; */
+
 }
 .buttons-container{
 	display: flex;
@@ -217,9 +230,6 @@ label{
 	/* width: 100px; */
 	/* outline: lightblue solid 1px; */	
 
-}
-input{
-	
 }
 
 .description-form{
