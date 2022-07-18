@@ -8,7 +8,7 @@ function Book(title, author, pages, description) {
 }
 
 
-//just returns the new book
+//just returns the new object book
 function addBookToLibrary(title, author, pages, description) {
     let book = new Book(title, author, pages, description)
     library.push(book)
@@ -21,6 +21,14 @@ function showBook(library) {
         console.log(library[book])
     }
 }
+
+function addId(library){
+    for (let i = 0; i < library.length; i++){
+        library[i].id = `id-${i}`
+    }
+}
+
+
 
 
 
@@ -45,7 +53,7 @@ addButton.addEventListener('click', () => {
     //adds the values to newly creted book everytime
     // add button is pressed
     addBookToLibrary(title.value, author.value, pages.value, description.value)
-    console.log(library)
+    addId(library)
 
 
     // resets value after every add press to prevent
@@ -66,16 +74,16 @@ displayBook.addEventListener('click', () => {
 
     // returns the last index of book
     newBook = library[library.length - 1]
+    console.log(library[library.length -1])
     titleUser.textContent = newBook.title
 
     // after pressing display 
-    // pop up disappears
-    popUpFrom.style.display = 'none'
-    dimBg.classList.remove('dim')
+    // // pop up disappears
+    // popUpFrom.style.display = 'none'
+    // dimBg.classList.remove('dim')
 
 
 })
-
 
 
 //enables background to dim when form pops up
@@ -96,3 +104,14 @@ dimBg.addEventListener('click', () => {
     popUpFrom.style.display = 'none'
     dimBg.classList.remove('dim')
 })
+
+
+
+const deleteButton = document.getElementById('delete-book')
+deleteButton.addEventListener('click', ()=>{
+    library.pop()
+
+    console.log(library)
+})
+
+
