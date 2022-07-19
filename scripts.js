@@ -28,13 +28,41 @@ function showBook(library) {
 
 const bookGrid = document.querySelector('.book-grid')
 
-function createCard(newBook,library){
+function createBook(newBook,library){
+    const bookContainer = document.createElement('div')
+    const contentBox = document.createElement('div')
+    const title = document.createElement('h1')
+    const author = document.createElement('h1')
+    const pages = document.createElement('h1')
+    const desc = document.createElement('h1')
+    const descBox = document.createElement('div')
+    const pDesc = document.createElement('p')
+
     for(let i = 0; i < library.length; i++){
-        const div = document.createElement('div')
-        div.textContent = newBook.title
-        bookGrid.appendChild(div)
-        console.log(div)
+        //this is a test
+        bookContainer.textContent = newBook.title
+        //this is a test
+        bookContainer.classList.add('book')
+        bookContainer.appendChild(contentBox)
+        contentBox.classList.add('content-box')
+        contentBox.append(title,author,pages,desc,descBox)
+        // contentBox.appendChild()
+
+        title.classList.add('title','contents')
+        author.classList.add('author','contents')
+        pages.classList.add('pages','contents')
+        desc.classList.add('description','contents')
+        descBox.classList.add('description-box')
+
+        title.innerText = 'Title'
+        author.innerText = 'Author'
+        pages.innerText = 'Pages'
+        desc.innerText = 'Description'
+        bookGrid.appendChild(bookContainer)
+
+        
     }
+    // console.log(div)
 
 }
 
@@ -81,9 +109,7 @@ displayBook.addEventListener('click', () => {
     // returns the last index of book
     newBook = library[library.length - 1]
     console.log(library[library.length -1])
-    // titleUser.textContent = newBook.title
-    // authUser.textContent = newBook.author
-    createCard(newBook,library)
+    createBook(newBook,library)
 })
 
 
