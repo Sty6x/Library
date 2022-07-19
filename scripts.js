@@ -9,9 +9,13 @@ function Book(title, author, pages, description) {
 
 
 //just returns the new object book
-function addBookToLibrary(title, author, pages, description) {
+function addBookToLibrary(title, author, pages, description ,library) {
     let book = new Book(title, author, pages, description)
     library.push(book)
+    //adds unique id for each book
+    for (let i = 0; i < library.length; i++){
+        library[i].id = `book-${i}`
+    }
     return book;
 }
 
@@ -22,14 +26,17 @@ function showBook(library) {
     }
 }
 
-function addId(library){
-    for (let i = 0; i < library.length; i++){
-        library[i].id = `id-${i}`
+const bookGrid = document.querySelector('.book-grid')
+
+function createCard(newBook,library){
+    for(let i = 0; i < library.length; i++){
+        const div = document.createElement('div')
+        div.textContent = newBook.title
+        bookGrid.appendChild(div)
+        console.log(div)
     }
+
 }
-
-
-
 
 
 //functionality
@@ -43,6 +50,7 @@ const authUser = document.querySelector('.auth-user')
 const titleUser = document.querySelector('.title-user')
 const pageUser = document.querySelector('.page-user')
 const descriptionUser = document.querySelector('.description-box')
+const book0 = document.getElementById('book-0')
 
 
 const addButton = document.getElementById('add');
@@ -52,8 +60,7 @@ addButton.addEventListener('click', () => {
 
     //adds the values to newly creted book everytime
     // add button is pressed
-    addBookToLibrary(title.value, author.value, pages.value, description.value)
-    addId(library)
+    addBookToLibrary(title.value, author.value, pages.value, description.value,library)
 
 
     // resets value after every add press to prevent
@@ -62,7 +69,6 @@ addButton.addEventListener('click', () => {
     author.value = '';
     pages.value = '';
     description.value = '';
-
 })
 
 // logs each book
@@ -75,14 +81,9 @@ displayBook.addEventListener('click', () => {
     // returns the last index of book
     newBook = library[library.length - 1]
     console.log(library[library.length -1])
-    titleUser.textContent = newBook.title
-
-    // after pressing display 
-    // // pop up disappears
-    // popUpFrom.style.display = 'none'
-    // dimBg.classList.remove('dim')
-
-
+    // titleUser.textContent = newBook.title
+    // authUser.textContent = newBook.author
+    createCard(newBook,library)
 })
 
 
@@ -107,11 +108,12 @@ dimBg.addEventListener('click', () => {
 
 
 
+
+
 const deleteButton = document.getElementById('delete-book')
 deleteButton.addEventListener('click', ()=>{
     library.pop()
-
-    console.log(library)
+    console.log(library[library.length -1])
 })
 
 
