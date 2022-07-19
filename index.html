@@ -12,40 +12,39 @@
 
 <body>
 
-  <div class="container">
+  <div class="main-container">
     <div class="pop-up-BG">
     </div>
-
     <div class=" pop-up-card pop-up">
-      <form action=""  class="pop-up-form">
-      <ul>
-        <li class="title-form form-input-label">
-          <label for="ti"> Title</label>
-          <input type="text" name="" id="title" >
-        </li>
-        <li class="auth-form form-input-label">
-           <label for="author"> Author</label>
-          <input type="text" name="" id="author">
-        </li>
-        <li class="pages-form form-input-label">
-          <label for="pg">Pages</label>
-          <input type="number" name="" id="pages">
-        </li>
-        <li class="description-form form-input-label">
-          <label for="desc">Description</label>
-          <textarea name="" id="description" cols="30" rows="10"></textarea>
-        </li>
-      </ul>
-  
-    </form>
-    <div class="buttons-container">
-      <button id="add">add book</button>
-      <button id="display-books">Display books</button>
-      <button>delete book</button>
+      <form action="" class="pop-up-form">
+        <ul>
+          <li class="title-form form-input-label">
+            <label for="ti"> Title</label>
+            <input type="text" name="" id="title">
+          </li>
+          <li class="auth-form form-input-label">
+            <label for="author"> Author</label>
+            <input type="text" name="" id="author">
+          </li>
+          <li class="pages-form form-input-label">
+            <label for="pg">Pages</label>
+            <input type="number" name="" id="pages">
+          </li>
+          <li class="description-form form-input-label">
+            <label for="desc">Description</label>
+            <textarea name="" id="description" cols="30" rows="10"></textarea>
+          </li>
+        </ul>
+
+      </form>
+      <div class="buttons-container">
+        <button id="add">add book</button>
+        <button id="display-books">Display books</button>
+        <button id="delete-book">delete book</button>
+      </div>
     </div>
-    </div>
-  
-   
+
+
     <header>
       <nav class="nav-bar">
         <div class="logo">
@@ -66,47 +65,11 @@
             <img class="func-icon delete-book-icon" src="./resources/img/icons8-minus-50.png" alt="delete book">
           </div>
         </div>
-        <div class="book-grid">
-          <div class="card">
-            <div class="content-box">
-              <h1 class="title contents">Title</h1>
-              <p class="title-user"></p>
-              <h1 class="author contents"> Author</h1>
-              <p class="auth-user"></p>
-              <h1 class="pages contents"> Pages</h1>
-              <p class="page-user"></p>
-              <h1 class="description contents">Description</h1>
-              <div class="description-box">
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                  dolore magna aliqua. Sodales ut eu sem integer vitae justo eget magna fermentum.
-                </p>
-              </div>
-            </div>
-          </div>
 
-          <div id="something" class="place-holder-card">
-          </div>
-          <div id="something" class="place-holder-card">
-          </div>
-          <div id="something" class="place-holder-card">
-          </div>
-          <div id="something" class="place-holder-card">
-          </div>
-          <div id="something" class="place-holder-card">
-          </div>
-          <div id="something" class="place-holder-card">
-          </div>
-          <div id="something" class="place-holder-card">
-          </div>
-        </div>
+        <div class="book-grid"></div>
       </div>
-
-      
     </main>
-
   </div>
-
 </body>
 
 </html>
