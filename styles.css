@@ -55,6 +55,8 @@ table {
 
 }
 
+
+
 .dim{
 	background-color: rgb(0, 0, 0, 0.7);
 	height: 100vh;
@@ -69,13 +71,6 @@ table {
 	width: 50px;
 	height: 50px;
 	padding-left: 2em;
-}
-.main-container{
-	background-color: black;
-	/* outline: black solid 200px; */
-	/* z-index: 0; */
-	/* opacity: ; */
-
 }
 
 .right-nav{
@@ -99,19 +94,22 @@ nav.nav-bar{
 }
 
 
-main{
+.main-container{
 	background-color: #EDEDED;
-	padding: 2em 15em 1em 15em;	
-	/* height: vh; */
+	height: 100vh;
+}
+
+main{
+	padding: 2em 15em 2em 15em;	
+	/* background-color: #363636; */
 }
 
 
+
 .book-func{
-	/* outline: black 1px solid; */
 	display: flex;
-	/* justify-content: space-between; */
 	align-items: center;
-	padding: 0 8em;
+	margin: .5em 8em;
 }
 
 .book-func>p{
@@ -119,7 +117,6 @@ main{
 	font-size: 2.2rem;
 	font-family: 'Roboto Mono', monospace;
 	letter-spacing: var(--letter-Space);
-	/* flex: 1; */
 	margin-right: auto;
 	color: #463A3A;
 }
@@ -144,7 +141,7 @@ main{
 	grid-template-columns: repeat(4, minmax(230px,1fr));
 	row-gap: 30px;
 	column-gap: 13px ;
-
+	
 }
 .book{
 	/* outline: black 1px solid; */
@@ -153,14 +150,10 @@ main{
 	border-radius: 6px;
 	box-shadow: 5px 5px 10px rgb(0, 0, 0 ,.3);
 	border-left: 10px solid rgb(71, 27, 27);
+	cursor: pointer;
 }
 
 
-/* .place-holder-card{
-	padding: 15px 20px;
-	outline: dashed 1px black;
-	display: none;
-} */
 
 /* book contents */
 
@@ -191,17 +184,22 @@ main{
 	width: auto;
 	color: #363636;
 	margin-top: .2em;
+	word-wrap: break-word
 }
 
-.description-box .desc-user{
-	text-overflow:ellipsis;
-	
+.desc-user{
+	color:#463A3A !important;
 }
 
+#title:invalid{
+	outline: red solid 1px;
+}
 
 .user{
 	font-family: 'Roboto Mono', monospace;
-	color:#463A3A;
+	height: 1rem;
+	color: #3b3737;
+	margin-top: .3em;
 }
 
 

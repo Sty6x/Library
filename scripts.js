@@ -52,18 +52,17 @@ function createBook(newBook,library){
     const userDesc = document.createElement('p')
 
     for(let i = 0; i < library.length; i++){
-        //this is a test
+        //User Input
         userTitle.textContent = newBook.title
         userAuthor.textContent = newBook.author
         userPages.textContent = newBook.pages
         userDesc.textContent = newBook.description
-        //this is a test
+        //User Input
 
 
         bookContainer.classList.add('book')
         bookContainer.appendChild(contentBox)
         contentBox.classList.add('content-box')
-        // contentBox.append(title,author,pages,desc,descBox)
         contentBox.append(firstContainer,secondContainer,thirdContainer,fourthtContainer)
 
 
@@ -168,13 +167,39 @@ dimBg.addEventListener('click', () => {
 })
 
 
-
-
-
 const deleteButton = document.getElementById('delete-book')
 deleteButton.addEventListener('click', ()=>{
     library.pop()
     console.log(library[library.length -1])
 })
 
+// title.addEventListener('input', function(event){
+//     if(title.validity.valueMissing){
+//         title.setCustomValidity('not filled');
+//         title.reportValidity();
+//         event.preventDefault();
+//     }else{
+//         title.setCustomValidity('')
+//     }
+// })
 
+// author.addEventListener('input', function(event){
+//     if(author.validity.valueMissing){
+//         author.setCustomValidity('not filled');
+//         author.reportValidity();
+//         event.preventDefault();
+//     }else{
+//         author.setCustomValidity('')
+//     }
+// })
+
+const form = document.querySelector('form')
+
+form.addEventListener('submit' , function(event){
+    if(!email.validity.valid) {
+        // If it isn't, we display an appropriate error message
+        console.log('error')
+        // Then we prevent the form from being sent by canceling the event
+        event.preventDefault();
+      }
+})
