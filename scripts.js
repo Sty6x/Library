@@ -31,28 +31,67 @@ const bookGrid = document.querySelector('.book-grid')
 function createBook(newBook,library){
     const bookContainer = document.createElement('div')
     const contentBox = document.createElement('div')
+
+    const firstContainer = document.createElement('div')
+    const secondContainer = document.createElement('div')
+    const thirdContainer = document.createElement('div')
+    const fourthtContainer = document.createElement('div')
+    
     const title = document.createElement('h1')
     const author = document.createElement('h1')
     const pages = document.createElement('h1')
+
     const desc = document.createElement('h1')
     const descBox = document.createElement('div')
-    const pDesc = document.createElement('p')
+
+    // displays user's input 
+    const userTitle = document.createElement('p')
+    const userAuthor = document.createElement('p')
+    const userPages = document.createElement('p')
+
+    const userDesc = document.createElement('p')
 
     for(let i = 0; i < library.length; i++){
         //this is a test
-        bookContainer.textContent = newBook.title
+        userTitle.textContent = newBook.title
+        userAuthor.textContent = newBook.author
+        userPages.textContent = newBook.pages
+        userDesc.textContent = newBook.description
         //this is a test
+
+
         bookContainer.classList.add('book')
         bookContainer.appendChild(contentBox)
         contentBox.classList.add('content-box')
-        contentBox.append(title,author,pages,desc,descBox)
-        // contentBox.appendChild()
+        // contentBox.append(title,author,pages,desc,descBox)
+        contentBox.append(firstContainer,secondContainer,thirdContainer,fourthtContainer)
+
+
 
         title.classList.add('title','contents')
         author.classList.add('author','contents')
         pages.classList.add('pages','contents')
         desc.classList.add('description','contents')
         descBox.classList.add('description-box')
+
+        userTitle.classList.add('title-user', 'user')
+        userAuthor.classList.add('author-user', 'user')
+        userPages.classList.add('page-user', 'user')
+        userDesc.classList.add('desc-user', 'user')
+
+
+
+        firstContainer.classList.add('first', 'container')
+        secondContainer.classList.add( 'second','container')
+        thirdContainer.classList.add('third','container')
+        fourthtContainer.classList.add('fourth', 'container')
+
+        firstContainer.append(title,userTitle)
+        secondContainer.append(author,userAuthor)
+        thirdContainer.append(pages,userPages)
+        descBox.appendChild(userDesc)
+        fourthtContainer.append(desc,descBox)
+
 
         title.innerText = 'Title'
         author.innerText = 'Author'
@@ -62,23 +101,19 @@ function createBook(newBook,library){
 
         
     }
-    // console.log(div)
+
 
 }
 
 
 //functionality
 
+
+//reference for pop-up form
 const title = document.getElementById('title')
 const author = document.getElementById('author')
 const pages = document.getElementById('pages')
 const description = document.getElementById('description')
-
-const authUser = document.querySelector('.auth-user')
-const titleUser = document.querySelector('.title-user')
-const pageUser = document.querySelector('.page-user')
-const descriptionUser = document.querySelector('.description-box')
-const book0 = document.getElementById('book-0')
 
 
 const addButton = document.getElementById('add');
