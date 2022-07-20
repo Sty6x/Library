@@ -154,6 +154,11 @@ main{
 }
 
 
+.if-read{
+
+	border-left: 10px solid rgb(140 197 116);
+}
+
 
 /* book contents */
 

@@ -5,16 +5,18 @@ function Book(title, author, pages, description) {
     this.author = author
     this.pages = pages
     this.description = description
+
 }
 
 
 //just returns the new object book
-function addBookToLibrary(title, author, pages, description ,library) {
+function addBookToLibrary(title, author, pages, description, library,) {
     let book = new Book(title, author, pages, description)
     library.push(book)
     //adds unique id for each book
-    for (let i = 0; i < library.length; i++){
+    for (let i = 0; i < library.length; i++) {
         library[i].id = `book-${i}`
+        library[i].read = false
     }
     return book;
 }
@@ -27,8 +29,9 @@ function showBook(library) {
 }
 
 const bookGrid = document.querySelector('.book-grid')
+// const userBook = document.querySelector('.book')
 
-function createBook(newBook,library){
+function createBook(newBook, library) {
     const bookContainer = document.createElement('div')
     const contentBox = document.createElement('div')
 
@@ -36,7 +39,7 @@ function createBook(newBook,library){
     const secondContainer = document.createElement('div')
     const thirdContainer = document.createElement('div')
     const fourthtContainer = document.createElement('div')
-    
+
     const title = document.createElement('h1')
     const author = document.createElement('h1')
     const pages = document.createElement('h1')
@@ -51,59 +54,58 @@ function createBook(newBook,library){
 
     const userDesc = document.createElement('p')
 
-    for(let i = 0; i < library.length; i++){
-        //User Input
-        userTitle.textContent = newBook.title
-        userAuthor.textContent = newBook.author
-        userPages.textContent = newBook.pages
-        userDesc.textContent = newBook.description
-        //User Input
 
+    // //User Input
+    userTitle.textContent = newBook.title
+    userAuthor.textContent = newBook.author
+    userPages.textContent = newBook.pages
+    userDesc.textContent = newBook.description
+    //User Input
 
-        bookContainer.classList.add('book')
-        bookContainer.appendChild(contentBox)
-        contentBox.classList.add('content-box')
-        contentBox.append(firstContainer,secondContainer,thirdContainer,fourthtContainer)
+    bookContainer.classList.add('book')
+    bookContainer.appendChild(contentBox)
+    contentBox.classList.add('content-box')
+    contentBox.append(firstContainer, secondContainer, thirdContainer, fourthtContainer)
 
+    title.classList.add('title', 'contents')
+    author.classList.add('author', 'contents')
+    pages.classList.add('pages', 'contents')
+    desc.classList.add('description', 'contents')
+    descBox.classList.add('description-box')
 
-
-        title.classList.add('title','contents')
-        author.classList.add('author','contents')
-        pages.classList.add('pages','contents')
-        desc.classList.add('description','contents')
-        descBox.classList.add('description-box')
-
-        userTitle.classList.add('title-user', 'user')
-        userAuthor.classList.add('author-user', 'user')
-        userPages.classList.add('page-user', 'user')
-        userDesc.classList.add('desc-user', 'user')
+    userTitle.classList.add('title-user', 'user')
+    userAuthor.classList.add('author-user', 'user')
+    userPages.classList.add('page-user', 'user')
+    userDesc.classList.add('desc-user', 'user')
 
 
 
-        firstContainer.classList.add('first', 'container')
-        secondContainer.classList.add( 'second','container')
-        thirdContainer.classList.add('third','container')
-        fourthtContainer.classList.add('fourth', 'container')
+    firstContainer.classList.add('first', 'container')
+    secondContainer.classList.add('second', 'container')
+    thirdContainer.classList.add('third', 'container')
+    fourthtContainer.classList.add('fourth', 'container')
 
-        firstContainer.append(title,userTitle)
-        secondContainer.append(author,userAuthor)
-        thirdContainer.append(pages,userPages)
-        descBox.appendChild(userDesc)
-        fourthtContainer.append(desc,descBox)
+    firstContainer.append(title, userTitle)
+    secondContainer.append(author, userAuthor)
+    thirdContainer.append(pages, userPages)
+    descBox.appendChild(userDesc)
+    fourthtContainer.append(desc, descBox)
 
 
-        title.innerText = 'Title'
-        author.innerText = 'Author'
-        pages.innerText = 'Pages'
-        desc.innerText = 'Description'
-        bookGrid.appendChild(bookContainer)
+    title.innerText = 'Title'
+    author.innerText = 'Author'
+    pages.innerText = 'Pages'
+    desc.innerText = 'Description'
+    bookGrid.appendChild(bookContainer)
 
-        
+    for (let i = 0; i < library.length; i++) {
+        library[i].id = bookContainer.setAttribute('id', `book-${i}`)
+    }
+    if(newBook.read == true){
+        bookContainer.classList.add('if-read')
     }
 
-
 }
-
 
 //functionality
 
@@ -119,10 +121,10 @@ const addButton = document.getElementById('add');
 let newBook
 addButton.addEventListener('click', () => {
     console.log('book is added!')
-
-    //adds the values to newly creted book everytime
-    // add button is pressed
-    addBookToLibrary(title.value, author.value, pages.value, description.value,library)
+    
+    //adds the values to newly creted book everytime add button is pressed
+    addBookToLibrary(title.value, author.value, pages.value, description.value, library)
+    newBook = library[library.length - 1]
 
 
     // resets value after every add press to prevent
@@ -135,25 +137,38 @@ addButton.addEventListener('click', () => {
 
 // logs each book
 const displayBook = document.getElementById('display-books')
+
 displayBook.addEventListener('click', () => {
     console.log('book is being displayed!')
     // showBook(library)
     // shows books content
-
+    
     // returns the last index of book
-    newBook = library[library.length - 1]
-    console.log(library[library.length -1])
-    createBook(newBook,library)
+    console.log(library[library.length - 1])
+    createBook(newBook, library)
+    popUpForm.style.borderLeft = ''
 })
 
 
+
+
+const deleteButton = document.getElementById('delete-book')
+deleteButton.addEventListener('click', () => {
+    library.pop()
+    console.log(library[library.length - 1])
+})
+
+
+
+
 //enables background to dim when form pops up
-const popUpFrom = document.querySelector('.pop-up-card');
+const popUpForm = document.querySelector('.pop-up-card');
 const dimBg = document.querySelector('.pop-up-BG')
 const addButtonIcon = document.querySelector('.add-book-icon');
 
+
 addButtonIcon.addEventListener('click', () => {
-    popUpFrom.style.display = 'flex'
+    popUpForm.style.display = 'flex'
     dimBg.classList.add('dim')
 })
 
@@ -162,44 +177,52 @@ addButtonIcon.addEventListener('click', () => {
 //quits out pop-up form
 dimBg.addEventListener('click', () => {
     // css display set to none after adding
-    popUpFrom.style.display = 'none'
+    popUpForm.style.display = 'none'
     dimBg.classList.remove('dim')
 })
 
 
-const deleteButton = document.getElementById('delete-book')
-deleteButton.addEventListener('click', ()=>{
-    library.pop()
-    console.log(library[library.length -1])
+
+
+
+
+//sets border-left to green if book is read
+//come back to this
+// event delegation
+bookGrid.addEventListener('click', (e) => {
+    // console.log('parent clicked')
+    const target = e.target;
+    if (target.matches('.book') || target.matches('.container') ||
+        target.matches('.contents') || target.matches('.user') ||
+        target.matches('.content-box')) {
+        console.log('book clicked')
+        const userBook = document.querySelectorAll('.book')
+        // console.log(userBook)
+        userBook.forEach(book => {
+            book.addEventListener('click', () => {
+                if ((book.classList.contains('if-read'))) {
+                    book.classList.remove('if-read')
+                    newBook.read = false
+                } else {
+                    book.classList.add('if-read')
+                    newBook.read = true
+                }
+            }, true)
+
+        });
+
+    }
 })
 
-// title.addEventListener('input', function(event){
-//     if(title.validity.valueMissing){
-//         title.setCustomValidity('not filled');
-//         title.reportValidity();
-//         event.preventDefault();
-//     }else{
-//         title.setCustomValidity('')
-//     }
-// })
 
-// author.addEventListener('input', function(event){
-//     if(author.validity.valueMissing){
-//         author.setCustomValidity('not filled');
-//         author.reportValidity();
-//         event.preventDefault();
-//     }else{
-//         author.setCustomValidity('')
-//     }
-// })
-
-const form = document.querySelector('form')
-
-form.addEventListener('submit' , function(event){
-    if(!email.validity.valid) {
-        // If it isn't, we display an appropriate error message
-        console.log('error')
-        // Then we prevent the form from being sent by canceling the event
-        event.preventDefault();
-      }
+const ifReadButton = document.getElementById('if-read');
+ifReadButton.addEventListener('click', () => {
+    popUpForm.style.borderLeft = ' 10px solid rgb(140 197 116)'
+    console.log('book read')
+    try{
+        newBook.read = true
+    }
+    catch(error){
+        console.log('newBook obj doesnt exist to let read become true')
+    }
 })
