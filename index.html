@@ -20,20 +20,20 @@
       <form action="" class="pop-up-form">
         <ul>
           <li class="title-form form-input-label">
-            <label for="ti"> Title</label>
-            <input  type="text" name="" id="title" required>
+            <input  type="text" name="" id="title" onchange="this.setAttribute('value',this.value)">
+            <label for="title">Title</label>
           </li>
           <li class="auth-form form-input-label">
-            <label for="author"> Author</label>
-            <input type="text" name="" id="author" required>
+            <input type="text" name="" id="author" onchange="this.setAttribute('value',this.value)" >
+            <label for="author">Author</label>
           </li>
           <li class="pages-form form-input-label">
-            <label for="pg">Pages</label>
-            <input type="number" name="" id="pages" required>
+            <input type="number" name="" id="pages" onchange="this.setAttribute('value',this.value)">
+            <label for="pages">Pages</label>
           </li>
           <li class="description-form form-input-label">
-            <label for="desc">Description</label>
-            <textarea name="" maxlength="100"  id="description" cols="30" rows="10"></textarea>
+            <textarea name="" maxlength="100"  id="description" cols="30" rows="10" onchange="this.setAttribute('value',this.value)"></textarea>
+            <label for="description">Description</label>
           </li>
         </ul>
       </form>
@@ -53,9 +53,9 @@
         </div>
         <div class="right-nav">
           <a href="https://github.com/Sty6x"> 
-            <img class="nav-icon" src="./resources/img/icons8-github-50.png" alt="github">
+            <img class="nav-icon git" src="./resources/img/icons8-github-50.png" alt="github">
           </a>
-          <img class="nav-icon" src="./resources/img/icons8-settings-50.png" alt="settings">
+          <img class="nav-icon settings" src="./resources/img/icons8-settings-50.png" alt="settings">
         </div>
       </nav>
     </header>
