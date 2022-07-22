@@ -104,6 +104,12 @@ function createBook(newBook, library) {
 
 }
 
+
+
+function removeBook(){
+
+}
+
 //functionality
 
 
@@ -148,12 +154,6 @@ displayBook.addEventListener('click', () => {
 
 
 
-const deleteButton = document.getElementById('delete-book')
-deleteButton.addEventListener('click', () => {
-    library.pop()
-    console.log(library[library.length - 1])
-})
-
 
 
 
@@ -186,12 +186,14 @@ dimBg.addEventListener('click', () => {
 //come back to this
 // event delegation
 bookGrid.addEventListener('click', (e) => {
-    // console.log('parent clicked')
+    // console.log(e)
     const target = e.target;
-    if (target.matches('.book') || target.matches('.container') ||
+
+    if (target.matches('.book')  || target.matches('.delete-book') ||
         target.matches('.contents') || target.matches('.user') ||
-        target.matches('.content-box')) {
-        console.log('book clicked')
+        target.matches('.content-box'))
+    {
+        // console.log('book clicked')
         const userBook = document.querySelectorAll('.book')
         // console.log(userBook)
         userBook.forEach(book => {
@@ -203,12 +205,29 @@ bookGrid.addEventListener('click', (e) => {
                     book.classList.add('if-read')
                     newBook.read = true
                 }
-            }, true)
-
+            })
+        });
+        let idNumber;
+        userBook.forEach(book => {
+            book.addEventListener('click' ,()=>{ 
+                // grabs the index position of book
+                idNumber = book.id.slice(5)
+                // console.log(idNumber)
+            })
         });
 
-    }
-})
+        
+        const deleteButton = document.querySelectorAll('.delete-book')
+        deleteButton.forEach(button => {
+            button.addEventListener('click' , ()=>{
+                console.log(idNumber)
+                // let deletedBook = library.pop(idNumber)
+                // console.log(`deleted book \n ${deletedBook}`)
+            })
+        })
+        
+    };
+});
 
 
 const ifReadButton = document.getElementById('if-read');
