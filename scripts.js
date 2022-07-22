@@ -4,13 +4,13 @@ function Book(title, author, pages) {
     this.title = title
     this.author = author
     this.pages = pages
- 
+
 
 }
 
 
 //just returns the new object book
-function addBookToLibrary(title, author, pages,  library) {
+function addBookToLibrary(title, author, pages, library) {
     let book = new Book(title, author, pages)
     library.push(book)
     //adds unique id for each book
@@ -50,7 +50,7 @@ function createBook(newBook, library) {
     const userAuthor = document.createElement('p')
     const userPages = document.createElement('p')
 
-  
+
     const removeButton = document.createElement('button')
 
 
@@ -58,7 +58,7 @@ function createBook(newBook, library) {
     userTitle.textContent = newBook.title
     userAuthor.textContent = newBook.author
     userPages.textContent = newBook.pages
-   
+
     //User Input
 
     bookContainer.classList.add('book')
@@ -98,7 +98,7 @@ function createBook(newBook, library) {
     for (let i = 0; i < library.length; i++) {
         library[i].id = bookContainer.setAttribute('id', `book-${i}`)
     }
-    if(newBook.read == true){
+    if (newBook.read == true) {
         bookContainer.classList.add('if-read')
     }
 
@@ -106,7 +106,7 @@ function createBook(newBook, library) {
 
 
 
-function removeBook(){
+function removeBook() {
 
 }
 
@@ -124,7 +124,7 @@ const addButton = document.getElementById('add');
 let newBook
 addButton.addEventListener('click', () => {
     console.log('book is added!')
-    
+
     //adds the values to newly creted book everytime add button is pressed
     addBookToLibrary(title.value, author.value, pages.value, library)
     newBook = library[library.length - 1]
@@ -141,7 +141,7 @@ displayBook.addEventListener('click', () => {
     console.log('book is being displayed!')
     showBook(library)
     // shows books content
-    
+
     // returns the last index of book
     createBook(newBook, library)
     title.value = '';
@@ -189,10 +189,9 @@ bookGrid.addEventListener('click', (e) => {
     // console.log(e)
     const target = e.target;
 
-    if (target.matches('.book')  || target.matches('.delete-book') ||
+    if (target.matches('.book') ||
         target.matches('.contents') || target.matches('.user') ||
-        target.matches('.content-box'))
-    {
+        target.matches('.content-box')) {
         // console.log('book clicked')
         const userBook = document.querySelectorAll('.book')
         // console.log(userBook)
@@ -207,26 +206,27 @@ bookGrid.addEventListener('click', (e) => {
                 }
             })
         });
-        let idNumber;
-        userBook.forEach(book => {
-            book.addEventListener('click' ,()=>{ 
-                // grabs the index position of book
-                idNumber = book.id.slice(5)
-                // console.log(idNumber)
-            })
-        });
 
+
+    }
+    else if (target.matches('.delete-book')) {
         
         const deleteButton = document.querySelectorAll('.delete-book')
+        let button;
+        for(let i = 0; i < deleteButton.length; i++){
+            button = deleteButton[i]
+            button.setAttribute('id',i)
+          
+        }
         deleteButton.forEach(button => {
-            button.addEventListener('click' , ()=>{
-                console.log(idNumber)
-                // let deletedBook = library.pop(idNumber)
-                // console.log(`deleted book \n ${deletedBook}`)
+            button.addEventListener('click',()=>{
+                console.log(button)
             })
         })
+      
         
-    };
+        
+    }
 });
 
 
@@ -234,10 +234,9 @@ const ifReadButton = document.getElementById('if-read');
 ifReadButton.addEventListener('click', () => {
     popUpForm.style.borderLeft = ' 10px solid rgb(140 197 116)'
     console.log('book read')
-    try{
+    try {
         newBook.read = true
-    }
-    catch(error){
+    } catch (error) {
         console.log('newBook obj doesnt exist to let read become true')
     }
 })
