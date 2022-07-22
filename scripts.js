@@ -129,10 +129,6 @@ addButton.addEventListener('click', () => {
 
     // resets value after every add press to prevent
     // duplication everytime button is pressed
-    title.value = '';
-    author.value = '';
-    pages.value = '';
-    description.value = '';
 })
 
 // logs each book
@@ -140,13 +136,16 @@ const displayBook = document.getElementById('display-books')
 
 displayBook.addEventListener('click', () => {
     console.log('book is being displayed!')
-    // showBook(library)
+    showBook(library)
     // shows books content
     
     // returns the last index of book
-    console.log(library[library.length - 1])
     createBook(newBook, library)
-    popUpForm.style.borderLeft = ''
+    title.value = '';
+    author.value = '';
+    pages.value = '';
+    description.value = '';
+    popUpForm.style.borderLeft = '';
 })
 
 
