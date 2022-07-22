@@ -1,17 +1,17 @@
 let library = []
 
-function Book(title, author, pages, description) {
+function Book(title, author, pages) {
     this.title = title
     this.author = author
     this.pages = pages
-    this.description = description
+ 
 
 }
 
 
 //just returns the new object book
-function addBookToLibrary(title, author, pages, description, library,) {
-    let book = new Book(title, author, pages, description)
+function addBookToLibrary(title, author, pages,  library) {
+    let book = new Book(title, author, pages)
     library.push(book)
     //adds unique id for each book
     for (let i = 0; i < library.length; i++) {
@@ -44,22 +44,21 @@ function createBook(newBook, library) {
     const author = document.createElement('h1')
     const pages = document.createElement('h1')
 
-    const desc = document.createElement('h1')
-    const descBox = document.createElement('div')
 
     // displays user's input 
     const userTitle = document.createElement('p')
     const userAuthor = document.createElement('p')
     const userPages = document.createElement('p')
 
-    const userDesc = document.createElement('p')
+  
+    const removeButton = document.createElement('button')
 
 
     // //User Input
     userTitle.textContent = newBook.title
     userAuthor.textContent = newBook.author
     userPages.textContent = newBook.pages
-    userDesc.textContent = newBook.description
+   
     //User Input
 
     bookContainer.classList.add('book')
@@ -70,14 +69,11 @@ function createBook(newBook, library) {
     title.classList.add('title', 'contents')
     author.classList.add('author', 'contents')
     pages.classList.add('pages', 'contents')
-    desc.classList.add('description', 'contents')
-    descBox.classList.add('description-box')
 
     userTitle.classList.add('title-user', 'user')
     userAuthor.classList.add('author-user', 'user')
     userPages.classList.add('page-user', 'user')
-    userDesc.classList.add('desc-user', 'user')
-
+    removeButton.classList.add('delete-book')
 
 
     firstContainer.classList.add('first', 'container')
@@ -88,14 +84,15 @@ function createBook(newBook, library) {
     firstContainer.append(title, userTitle)
     secondContainer.append(author, userAuthor)
     thirdContainer.append(pages, userPages)
-    descBox.appendChild(userDesc)
-    fourthtContainer.append(desc, descBox)
+
+    fourthtContainer.append(removeButton)
 
 
     title.innerText = 'Title'
     author.innerText = 'Author'
     pages.innerText = 'Pages'
-    desc.innerText = 'Description'
+    removeButton.innerText = 'Remove Book'
+    // desc.innerText = 'Description'
     bookGrid.appendChild(bookContainer)
 
     for (let i = 0; i < library.length; i++) {
@@ -114,7 +111,7 @@ function createBook(newBook, library) {
 const title = document.getElementById('title')
 const author = document.getElementById('author')
 const pages = document.getElementById('pages')
-const description = document.getElementById('description')
+// const description = document.getElementById('description')
 
 
 const addButton = document.getElementById('add');
@@ -123,7 +120,7 @@ addButton.addEventListener('click', () => {
     console.log('book is added!')
     
     //adds the values to newly creted book everytime add button is pressed
-    addBookToLibrary(title.value, author.value, pages.value, description.value, library)
+    addBookToLibrary(title.value, author.value, pages.value, library)
     newBook = library[library.length - 1]
 
 
@@ -144,7 +141,7 @@ displayBook.addEventListener('click', () => {
     title.value = '';
     author.value = '';
     pages.value = '';
-    description.value = '';
+    // description.value = '';
     popUpForm.style.borderLeft = '';
 })
 
