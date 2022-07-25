@@ -13,10 +13,12 @@ function Book(title, author, pages) {
 function addBookToLibrary(title, author, pages, library) {
     let book = new Book(title, author, pages)
     library.push(book)
-    //adds unique id for each book
+
+    //adds unique id for each object
     for (let i = 0; i < library.length; i++) {
         library[i].id = `book-${i}`
         library[i].read = false
+
     }
     return book;
 }
@@ -95,8 +97,10 @@ function createBook(newBook, library) {
     // desc.innerText = 'Description'
     bookGrid.appendChild(bookContainer)
 
+    // gives unique id to each book created on the page
     for (let i = 0; i < library.length; i++) {
-        library[i].id = bookContainer.setAttribute('id', `book-${i}`)
+        bookContainer.setAttribute('id', `book-${i}`)
+
     }
     if (newBook.read == true) {
         bookContainer.classList.add('if-read')
@@ -204,28 +208,28 @@ bookGrid.addEventListener('click', (e) => {
                     book.classList.add('if-read')
                     newBook.read = true
                 }
+                // bookGrid.removeChild()
             })
         });
 
 
-    }
-    else if (target.matches('.delete-book')) {
-        
+    } else if (target.matches('.delete-book')) {
+        const userBook = document.querySelectorAll('.book')
         const deleteButton = document.querySelectorAll('.delete-book')
         let button;
-        for(let i = 0; i < deleteButton.length; i++){
+        for (let i = 0; i < deleteButton.length; i++) {
             button = deleteButton[i]
-            button.setAttribute('id',i)
-          
+            button.setAttribute('id', i)
         }
         deleteButton.forEach(button => {
-            button.addEventListener('click',()=>{
-                console.log(button)
+            button.addEventListener('click', () => {
+                library.pop(button.id)
+                bookGrid.removeChild(userBook[button.id])
+                console.log(library[button.id])
+                console.log(userBook[button.id])
             })
+
         })
-      
-        
-        
     }
 });
 
